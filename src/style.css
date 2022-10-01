@@ -96,8 +96,8 @@ h1,
   margin-top: 0;
 }
 
-.main-icon {
-  height: 180px;
+.icon {
+  height: 140px;
 }
 
 li {
@@ -180,6 +180,6 @@ footer a:hover {
   color: #c0c4c2fb;
 }
 
-.wi {
+.units {
   cursor: pointer;
 }

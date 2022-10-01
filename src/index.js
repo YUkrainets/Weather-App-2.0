@@ -29,3 +29,48 @@ function date_time() {
   return time;
 }
 document.getElementById("updating-date").innerHTML = date_time();
+
+function weatherCondition(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#curr-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector(".weather-description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+  document.querySelector("#cloud").innerHTML = Math.round(
+    response.data.clouds.all
+  );
+  document.querySelector("#sunrise").innerHTML = new Date(
+    response.data.sys.sunrise * 1000
+  )
+    .toLocaleTimeString()
+    .slice(0, 5);
+  document.querySelector("#sunset").innerHTML = new Date(
+    response.data.sys.sunset * 1000
+  )
+    .toLocaleTimeString()
+    .slice(0, 5);
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document
+    .querySelector(".icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+  getForecast(response.data.coord);
+}
+
+function searchCity(city) {
+  const apiKey = "8e5b59b809f8bc53074ae3c184eef489";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(weatherCondition);
+}
+
+searchCity("Kyiv");
