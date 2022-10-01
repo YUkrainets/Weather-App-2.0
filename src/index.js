@@ -74,3 +74,28 @@ function searchCity(city) {
 }
 
 searchCity("Kyiv");
+
+function searchLocation(position) {
+  const apiKey = "8e5b59b809f8bc53074ae3c184eef489";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(weatherCondition);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const city = document.querySelector(".form").value;
+  searchCity(city);
+  document.querySelector(".form").value = "";
+}
+
+let currentButton = document.querySelector(".location");
+currentButton.addEventListener("click", getCurrentLocation);
+
+let changeButton = document.querySelector(".search-button");
+changeButton.addEventListener("click", handleSubmit);
