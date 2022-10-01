@@ -57,12 +57,16 @@ function weatherCondition(response) {
     .toLocaleTimeString()
     .slice(0, 5);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document
-    .querySelector(".icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+
+  let iconElement = document.querySelector(".icon");
+  iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
+
+  // document
+  // .querySelector(".icon")
+  // .setAttribute(
+  //   "src",
+  //   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  // );
 
   getForecast(response.data.coord);
 }
