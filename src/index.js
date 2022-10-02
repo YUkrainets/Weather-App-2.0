@@ -35,11 +35,17 @@ function weatherCondition(response) {
   document.querySelector("#curr-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+
   document.querySelector(".weather-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
   );
+
+  // celsiusTemperature = response.data.main.temp;
+  // temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  // cityElement.innerHTML = response.data.name;
+
   document.querySelector("#min-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
@@ -71,13 +77,29 @@ function weatherCondition(response) {
   getForecast(response.data.coord);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let temperatureElement = document.querySelector("#curr-temp");
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let temperatureElement = document.querySelector("#curr-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
 function searchCity(city) {
   const apiKey = "8e5b59b809f8bc53074ae3c184eef489";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weatherCondition);
 }
-
-searchCity("Kyiv");
 
 function searchLocation(position) {
   const apiKey = "8e5b59b809f8bc53074ae3c184eef489";
@@ -103,3 +125,5 @@ currentButton.addEventListener("click", getCurrentLocation);
 
 let changeButton = document.querySelector(".search-button");
 changeButton.addEventListener("click", handleSubmit);
+
+searchCity("Kyiv");

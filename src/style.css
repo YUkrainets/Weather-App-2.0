@@ -28,7 +28,7 @@ body {
 input[type="text"] {
   background-color: #7e5a6b;
   border: #111725 solid 1px;
-  color: #d7d8d8;
+  color: #c0c4c2ce;
   height: 33px;
   width: 270px;
   margin-right: 0px;
@@ -50,14 +50,36 @@ input[type="submit"] {
   font-size: 15px;
   background-color: #51435f;
   border: #111725 solid 1px;
-  color: #d7d8d8;
+  color: #c0c4c2;
   width: 75px;
 }
 
 input[type="submit"]:hover {
   outline: none;
   background-color: #7e5a6b;
-  color: #f9fcfc;
+  color: #c0c4c2;
+}
+
+li {
+  margin-top: 25px;
+  text-align: center;
+  list-style: none;
+}
+
+footer {
+  margin-top: 25px;
+  color: #c0c4c281;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #c0c4c2ce;
+}
+
+footer a:hover {
+  color: #c0c4c2fb;
 }
 
 .main-info {
@@ -91,19 +113,8 @@ h1,
   margin-top: 25px;
   margin-bottom: 10px;
 }
-
-#updating-date {
-  margin-top: 0;
-}
-
 .icon {
   height: 140px;
-}
-
-li {
-  margin-top: 25px;
-  text-align: center;
-  list-style: none;
 }
 
 .days {
@@ -116,70 +127,18 @@ li {
   line-height: 15px;
 }
 
-.days:last-child {
-  margin-right: 0px;
-}
-
-.days h2 {
-  padding-top: 4px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.forecast-days .max-temp {
-  font-size: 25px;
-  margin-left: 15px;
-  font-weight: 700;
-  margin-bottom: 1px;
-  margin-top: 15px;
-}
-
-.forecast-days .min-temp {
-  font-size: 18px;
-  font-weight: 200;
-  margin-left: 18px;
-  margin-top: 0px;
-  color: #c0c4c288;
-}
-
-.forecast-days .weather-icon {
-  padding-left: 0px;
-}
-
-.forecast-days .daily-temp {
-  margin-top: 8px;
-  padding: 0px;
-}
-
-.nextdays-icons {
-  font-size: 45px;
-  color: #c0c4c2c5;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
 .days .weather-disc {
   text-align: center;
   text-transform: capitalize;
   font-size: 14px;
 }
 
-footer {
-  margin-top: 25px;
-  color: #c0c4c281;
-  text-align: center;
-}
-
-footer a {
-  text-decoration: none;
-  font-weight: 700;
-  color: #c0c4c2ce;
-}
-
-footer a:hover {
-  color: #c0c4c2fb;
-}
-
 .units {
   cursor: pointer;
+  text-decoration: none;
+  color: #c0c4c2;
+}
+
+#updating-date {
+  margin-top: 0;
 }
