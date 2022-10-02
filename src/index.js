@@ -36,15 +36,15 @@ function weatherCondition(response) {
     response.data.main.temp
   );
 
+  // const temperatureElement = document.querySelector("#curr-temp");
+  // celsiusTemperature = response.data.main.temp;
+  // temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
   document.querySelector(".weather-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
   );
-
-  // celsiusTemperature = response.data.main.temp;
-  // temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  // cityElement.innerHTML = response.data.name;
 
   document.querySelector("#min-temp").innerHTML = Math.round(
     response.data.main.temp_min
