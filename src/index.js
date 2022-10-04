@@ -117,13 +117,13 @@ function handleSubmit(event) {
   event.preventDefault();
   const city = document.querySelector(".form").value;
   searchCity(city);
-  document.querySelector(".form").value = "";
+  //   document.querySelector(".form").value = "";
 }
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 let currentButton = document.querySelector(".location");
 currentButton.addEventListener("click", getCurrentLocation);
-
-let changeButton = document.querySelector(".search-button");
-changeButton.addEventListener("click", handleSubmit);
 
 searchCity("Kyiv");

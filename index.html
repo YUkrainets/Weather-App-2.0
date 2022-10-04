@@ -16,11 +16,13 @@
 <body>
     <div class="wrapper">
         <div class="container forecast-main">
-            <div class="main-head">
-                    <input type="text" class="form" id="city-input" placeholder="Search City">
+            <form class="main-head" id="search-form">
+                
+                    <input type="text" class="form" id="city-input" placeholder="Search City" autocomplete="on"
+                autofocus="on">
                     <input type="submit" class="search-button" value="Search">
                     <input type="submit" class="location"  value="Current">
-            </div>
+            </form>
             
             <div class="row  main-info">
                 <div class="col">
