@@ -105,6 +105,10 @@ h1,
   color: #7e5a6b;
 }
 
+.forecast-days h2 {
+  font-size: 16px;
+}
+
 .current-city h2 {
   font-size: 40px;
 }
@@ -137,6 +141,37 @@ h1,
   cursor: pointer;
   text-decoration: none;
   color: #c0c4c2;
+}
+.days {
+  background-color: #3f3551;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.forecast-days .weather-icon {
+  padding-left: 0px;
+}
+
+.days:last-child {
+  margin-right: 0px;
+}
+
+.forecast-days .min-temp,
+.forecast-days .max-temp {
+  font-size: 18px;
+  font-weight: 200;
+  margin-left: 18px;
+  margin-top: 0px;
+}
+
+.nextdays-icons {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.days .weather-disc {
+  text-align: center;
+  font-size: 14px;
 }
 
 #updating-date {

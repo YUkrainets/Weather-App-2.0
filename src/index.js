@@ -28,6 +28,15 @@ function date_time() {
   ${week_day}, ${hours}:${minutes}`;
   return time;
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 document.getElementById("updating-date").innerHTML = date_time();
 
 function weatherCondition(response) {
@@ -77,6 +86,47 @@ function weatherCondition(response) {
   getForecast(response.data.coord);
 }
 
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(".forecast-days");
+  let forecastTemplate = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index >= 1 && index < 7) {
+      forecastTemplate =
+        forecastTemplate +
+        `
+        <div class="col days">
+        <h2>${formatDay(forecastDay.dt)}</h2>
+        <div class="row">
+            <div class="col daily-temp">
+                <p class="max-temp">${Math.round(forecastDay.temp.max)}&deg;</p>
+                <p class="min-temp">${Math.round(forecastDay.temp.min)}&deg;</p>
+            </div>  
+            <div class="col weather-icon"> 
+            <img 
+              src="img/${forecastDay.weather[0].icon}.svg"
+              class="nextdays-icon"
+            />
+            </div>    
+          </div>
+          <div class="row">
+            <p class="weather-disc">${forecastDay.weather[0].description}</p>
+          </div>
+        </div>
+      `;
+    }
+  });
+  forecastTemplate += `</div>`;
+  forecastElement.innerHTML = forecastTemplate;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "ed238469f9b5e9d801834270e65449bc";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -117,7 +167,7 @@ function handleSubmit(event) {
   event.preventDefault();
   const city = document.querySelector(".form").value;
   searchCity(city);
-  //   document.querySelector(".form").value = "";
+  document.querySelector(".form").value = "";
 }
 
 let form = document.querySelector("#search-form");
