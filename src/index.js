@@ -47,24 +47,25 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-switch (true) {
-  case (0 <= hours && hours < 5) || 22 <= hours:
-    document.getElementById("forecast-main").style.backgroundImage =
-      "url(../img/night.jpg)";
-    break;
-  case 5 <= hours && hours < 9:
-    document.getElementById("forecast-main").style.backgroundImage =
-      "url(../img/sunrise.jpg)";
-    break;
-  case 9 <= hours && hours < 18:
-    document.getElementById("forecast-main").style.backgroundImage =
-      "url(../img/day.jpg)";
-    break;
-  case 18 <= hours && hours < 22:
-    document.getElementById("forecast-main").style.backgroundImage =
-      "url(../img/sunset.jpg)";
-    break;
-}
+// DO NOT WORK -- cant understand why
+// switch (true) {
+//   case (0 <= hours && hours < 5) || 22 <= hours:
+//     document.getElementById("forecast-main").style.backgroundImage =
+//       "url(../img/night.jpg)";
+//     break;
+//   case 5 <= hours && hours < 9:
+//     document.getElementById("forecast-main").style.backgroundImage =
+//       "url(../img/sunrise.jpg)";
+//     break;
+//   case 9 <= hours && hours < 18:
+//     document.getElementById("forecast-main").style.backgroundImage =
+//       "url(../img/day.jpg)";
+//     break;
+//   case 18 <= hours && hours < 22:
+//     document.getElementById("forecast-main").style.backgroundImage =
+//       "url(../img/sunset.jpg)";
+//     break;
+// }
 
 document.getElementById("updating-date").innerHTML = date_time();
 
