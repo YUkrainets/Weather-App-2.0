@@ -42,6 +42,10 @@ input[type="text"] {
     height: 23px;
     width: 120px;
   }
+  li,
+  footer {
+    visibility: hidden;
+  }
 
   .icon {
     height: 70px;
@@ -56,13 +60,10 @@ input[type="text"] {
   }
 
   .days .weather-disc {
-    font-size: 10px;
+    font-size: 8px;
   }
   .days {
     height: 70px;
-  }
-  li {
-    visibility: hidden;
   }
 }
 
