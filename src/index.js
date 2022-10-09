@@ -48,19 +48,19 @@ function formatDay(timestamp) {
 }
 
 switch (true) {
-  case (0 <= hour && hour < 5) || 22 <= hour:
+  case (0 <= hours && hours < 5) || 22 <= hours:
     document.getElementById("forecast-main").style.backgroundImage =
       "url(../img/night.jpg)";
     break;
-  case 5 <= hour && hour < 9:
+  case 5 <= hours && hours < 9:
     document.getElementById("forecast-main").style.backgroundImage =
       "url(../img/sunrise.jpg)";
     break;
-  case 9 <= hour && hour < 18:
+  case 9 <= hours && hours < 18:
     document.getElementById("forecast-main").style.backgroundImage =
       "url(../img/day.jpg)";
     break;
-  case 18 <= hour && hour < 22:
+  case 18 <= hours && hours < 22:
     document.getElementById("forecast-main").style.backgroundImage =
       "url(../img/sunset.jpg)";
     break;
