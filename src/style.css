@@ -58,6 +58,12 @@ input[type="text"] {
   .days .weather-disc {
     font-size: 10px;
   }
+  .days {
+    height: 70px;
+  }
+  li {
+    font-size: 12px;
+  }
 }
 
 input[type="text"]:hover,
@@ -183,11 +189,6 @@ h1,
   font-weight: 200;
   margin-left: 18px;
   margin-top: 0px;
-}
-
-.nextdays-icons {
-  margin-top: 10px;
-  margin-right: 10px;
 }
 
 .days .weather-disc {
