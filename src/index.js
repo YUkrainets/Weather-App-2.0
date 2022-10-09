@@ -47,6 +47,25 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+switch (true) {
+  case (0 <= hour && hour < 5) || 22 <= hour:
+    document.getElementById("forecast-main").style.backgroundImage =
+      "url(../img/night.jpg)";
+    break;
+  case 5 <= hour && hour < 9:
+    document.getElementById("forecast-main").style.backgroundImage =
+      "url(../img/sunrise.jpg)";
+    break;
+  case 9 <= hour && hour < 18:
+    document.getElementById("forecast-main").style.backgroundImage =
+      "url(../img/day.jpg)";
+    break;
+  case 18 <= hour && hour < 22:
+    document.getElementById("forecast-main").style.backgroundImage =
+      "url(../img/sunset.jpg)";
+    break;
+}
+
 document.getElementById("updating-date").innerHTML = date_time();
 
 function weatherCondition(response) {
