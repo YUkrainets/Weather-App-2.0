@@ -1,12 +1,11 @@
-// $(window).on("resize", function () {
-//   if ($(window).width() > 600) {
-//     $("#body").addClass("limit1000");
-//     $("#body").removeClass("limit400");
-//   } else {
-//     $("#body").addClass("limit400");
-//     $("#body").removeClass("limit1000");
-//   }
-// });
+const currentTime = new Date().getHours();
+if (document.body) {
+  if (7 <= currentTime && currentTime < 20) {
+    document.body.background = "./img/day.jpg";
+  } else {
+    document.body.background = "./img/night.jpg";
+  }
+}
 
 function zero_first_format(value) {
   if (value < 10) {
@@ -42,30 +41,18 @@ function date_time() {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monaday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   return days[day];
 }
-
-// DO NOT WORK -- cant understand why
-// switch (true) {
-//   case (0 <= hours && hours < 5) || 22 <= hours:
-//     document.getElementById("forecast-main").style.backgroundImage =
-//       "url(../img/night.jpg)";
-//     break;
-//   case 5 <= hours && hours < 9:
-//     document.getElementById("forecast-main").style.backgroundImage =
-//       "url(../img/sunrise.jpg)";
-//     break;
-//   case 9 <= hours && hours < 18:
-//     document.getElementById("forecast-main").style.backgroundImage =
-//       "url(../img/day.jpg)";
-//     break;
-//   case 18 <= hours && hours < 22:
-//     document.getElementById("forecast-main").style.backgroundImage =
-//       "url(../img/sunset.jpg)";
-//     break;
-// }
 
 document.getElementById("updating-date").innerHTML = date_time();
 
