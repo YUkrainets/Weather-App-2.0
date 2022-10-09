@@ -1,3 +1,13 @@
+// $(window).on("resize", function () {
+//   if ($(window).width() > 600) {
+//     $("#body").addClass("limit1000");
+//     $("#body").removeClass("limit400");
+//   } else {
+//     $("#body").addClass("limit400");
+//     $("#body").removeClass("limit1000");
+//   }
+// });
+
 function zero_first_format(value) {
   if (value < 10) {
     value = "0" + value;

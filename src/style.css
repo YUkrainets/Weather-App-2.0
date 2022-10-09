@@ -37,10 +37,32 @@ input[type="text"] {
   padding-right: 50px;
 }
 
+@media (max-width: 500px) {
+  input[type="text"] {
+    height: 23px;
+    width: 120px;
+  }
+
+  .icon {
+    height: 70px;
+  }
+
+  .forecast-days h2 {
+    font-size: 10px;
+  }
+
+  .current-city h2 {
+    font-size: 20px;
+  }
+
+  .days .weather-disc {
+    font-size: 10px;
+  }
+}
+
 input[type="text"]:hover,
 input[type="text"]:focus {
   outline: none;
-  -webkit-box-shadow: 0px 0px 9px 2px rgba(41, 35, 27, 0.47);
   box-shadow: 0px 0px 9px 2px rgba(41, 35, 27, 0.47);
 }
 
@@ -126,7 +148,6 @@ h1,
   height: 130px;
   border-radius: 30px;
   margin-right: 10px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(17, 23, 39, 0.4);
   box-shadow: 0px 0px 10px 2px rgba(17, 23, 39, 0.4);
   line-height: 15px;
 }
