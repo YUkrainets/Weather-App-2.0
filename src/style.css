@@ -26,7 +26,7 @@ input[type="text"] {
   background-color: #7e5a6b;
   color: #d7dbd9;
   border: #08080a solid 0.5px;
-  width: 270px;
+  width: 250px;
   border-radius: 15px;
   padding: 0 50px 0 10px;
 }
@@ -37,7 +37,7 @@ input[type="submit"] {
   width: 75px;
   border-radius: 15px;
   font-size: 15px;
-  margin-left: 10px;
+  margin: 10px;
 }
 input[type="submit"]:hover {
   outline: none;
@@ -51,20 +51,29 @@ input[type="text"]:focus {
 }
 
 .icon {
-  height: 145px;
+  height: 120px;
 }
 .weather-description {
+  text-align: center;
   text-transform: capitalize;
+}
+.date {
+  font-size: 38px;
+  margin-top: 30px;
+  margin-bottom: 1rem;
 }
 
 li {
   list-style: none;
   margin-top: 20px;
+  margin-left: -30px;
+  opacity: 0.5;
 }
 
 footer {
   color: #d7dbd9;
   text-align: center;
+  margin-top: 15px;
 }
 
 footer a {
@@ -73,7 +82,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #eaedeb;
+  color: #fbfbfb;
 }
 
 .forecast-days h2 {
@@ -85,9 +94,27 @@ h1,
 .forecast-days h2 {
   color: #7e5a6b;
 }
+h1 {
+  font-size: 45px;
+}
+h2 {
+  font-size: 40px;
+}
 
 .min-temp,
 .max-temp,
 .weather-decsription {
   font-size: 14px;
+}
+
+@media (max-width: 400px) {
+  .forecast-days {
+    display: none;
+  }
+  input[type="text"] {
+    width: 150px;
+  }
+  .icon {
+    height: 70px;
+  }
 }

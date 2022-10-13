@@ -117,7 +117,7 @@ function displayForecast(response) {
             <img 
               src="img/${forecastDay.weather[0].icon}.svg"
               alt=""
-          width="50"
+          width="55"
             />
             </div>    
           </div>
