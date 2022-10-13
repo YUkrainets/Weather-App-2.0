@@ -54,15 +54,15 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-document.getElementById("updating-date").innerHTML = date_time();
+document.getElementById("date").innerHTML = date_time();
 
 function weatherCondition(response) {
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#curr-temp").innerHTML = Math.round(
+  document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
 
-  // const temperatureElement = document.querySelector("#curr-temp");
+  // const temperatureElement = document.querySelector("#current-temperature");
   // celsiusTemperature = response.data.main.temp;
   // temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
@@ -71,25 +71,13 @@ function weatherCondition(response) {
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
   );
-
   document.querySelector("#min-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
   document.querySelector("#cloud").innerHTML = Math.round(
     response.data.clouds.all
   );
-  document.querySelector("#sunrise").innerHTML = new Date(
-    response.data.sys.sunrise * 1000
-  )
-    .toLocaleTimeString()
-    .slice(0, 5);
-  document.querySelector("#sunset").innerHTML = new Date(
-    response.data.sys.sunset * 1000
-  )
-    .toLocaleTimeString()
-    .slice(0, 5);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-
   let iconElement = document.querySelector(".icon");
   iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
 
@@ -106,36 +94,42 @@ function weatherCondition(response) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector(".forecast-days");
-  let forecastTemplate = `<div class="row">`;
+  let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index >= 1 && index < 7) {
-      forecastTemplate =
-        forecastTemplate +
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
         `
-        <div class="col days">
+        <div class="row-2">
         <h2>${formatDay(forecastDay.dt)}</h2>
-        <div class="row">
-            <div class="col daily-temp">
-                <p class="max-temp">${Math.round(forecastDay.temp.max)}&deg;</p>
-                <p class="min-temp">${Math.round(forecastDay.temp.min)}&deg;</p>
+        <div class="col">
+            <div class="weather-forecast-temperatures">
+                <p class="forecast-max-temp">${Math.round(
+                  forecastDay.temp.max
+                )}° </p>
+                <p class="forecasr-min-temp">${Math.round(
+                  forecastDay.temp.min
+                )}° </p>
             </div>  
-            <div class="col weather-icon"> 
+            <div class="forecast-icon"> 
             <img 
               src="img/${forecastDay.weather[0].icon}.svg"
-              class="nextdays-icon"
+              class="next-day-icon"
             />
             </div>    
           </div>
-          <div class="row">
-            <p class="weather-disc">${forecastDay.weather[0].description}</p>
+          <div class="col">
+            <p class="weather-decsription">${
+              forecastDay.weather[0].description
+            }</p>
           </div>
         </div>
       `;
     }
   });
-  forecastTemplate += `</div>`;
-  forecastElement.innerHTML = forecastTemplate;
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
@@ -149,7 +143,7 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  let temperatureElement = document.querySelector("#curr-temp");
+  let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
 
@@ -157,7 +151,7 @@ function displayCelsiusTemperature(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#curr-temp");
+  let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;

@@ -1,131 +1,79 @@
 body {
   background-color: #7e5a6b;
-  color: #c0c4c2;
   font-family: "Mali";
+  color: #d7dbd9;
 }
 .wrapper {
-  max-width: 1000px;
-  margin: 70px auto;
+  margin: 50px auto;
+  max-height: 1000px;
+  max-width: 500px;
 }
-
-.forecast-main {
+.forecast-main,
+.forecast-days {
   background-color: #3f3551;
   border-radius: 20px;
-  height: 400px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0px 0px 10px 2px rgba(17, 23, 39, 0.4);
-}
-
-.main-head {
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 20px;
-  margin-bottom: 25px;
+  padding: 35px;
+  box-shadow: 0px 0px 5px 2px rgba(17, 23, 39, 0.4);
 }
 
 input[type="text"] {
   background-color: #7e5a6b;
-  border: #111725 solid 1px;
-  color: #c0c4c2ce;
-  height: 33px;
+  color: #d7dbd9;
+  border: #08080a solid 0.5px;
   width: 270px;
-  margin-right: 0px;
   border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 50px;
+  padding: 0 50px 0 10px;
 }
-
-@media (max-width: 500px) {
-  input[type="text"] {
-    height: 23px;
-    width: 120px;
-  }
-  li,
-  footer {
-    visibility: hidden;
-  }
-
-  .icon {
-    height: 70px;
-  }
-
-  .forecast-days h2 {
-    font-size: 10px;
-  }
-
-  .current-city h2 {
-    font-size: 20px;
-  }
-
-  .days .weather-disc {
-    font-size: 8px;
-  }
-  .days {
-    height: 70px;
-  }
-}
-
-input[type="text"]:hover,
-input[type="text"]:focus {
-  outline: none;
-  box-shadow: 0px 0px 9px 2px rgba(41, 35, 27, 0.47);
-}
-
 input[type="submit"] {
-  margin-left: 10px;
+  background-color: #51435f;
+  border: #08080a solid 0.5px;
+  color: #d7dbd9;
+  width: 75px;
   border-radius: 15px;
   font-size: 15px;
-  background-color: #51435f;
-  border: #111725 solid 1px;
-  color: #c0c4c2;
-  width: 75px;
+  margin-left: 10px;
 }
-
 input[type="submit"]:hover {
   outline: none;
   background-color: #7e5a6b;
-  color: #c0c4c2;
+  color: #d7dbd9;
+}
+input[type="text"]:hover,
+input[type="text"]:focus {
+  outline: none;
+  background-color: #7e5a6b;
+}
+
+.icon {
+  height: 145px;
+}
+.forecast-icon {
+  padding-left: 0px;
+  height: 35px;
 }
 
 li {
-  margin-top: 25px;
-  text-align: center;
   list-style: none;
+  text-align: center;
+  margin-top: 20px;
 }
 
 footer {
-  margin-top: 25px;
-  color: #c0c4c281;
+  color: #d7dbd9;
   text-align: center;
 }
 
 footer a {
+  color: #d7dbd9;
   text-decoration: none;
-  font-weight: 700;
-  color: #c0c4c2ce;
 }
 
 footer a:hover {
-  color: #c0c4c2fb;
+  color: #eaedeb;
 }
 
-.main-info {
-  margin-top: 50px;
-  margin-right: 15px;
-}
-
-.current-city {
-  text-align: center;
-}
-
-.col-5 {
-  text-align: center;
-  text-transform: capitalize;
-}
-
-.details {
-  margin-top: 30px;
+.forecast-days h2 {
+  font-size: 10px;
 }
 
 h1,
@@ -133,69 +81,9 @@ h1,
   color: #7e5a6b;
 }
 
-.forecast-days h2 {
-  font-size: 16px;
-}
-
-.current-city h2 {
-  font-size: 40px;
-}
-
-.current-city p {
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-.icon {
-  height: 140px;
-}
-
-.days {
-  background-color: #111725;
-  height: 130px;
-  border-radius: 30px;
-  margin-right: 10px;
-  box-shadow: 0px 0px 10px 2px rgba(17, 23, 39, 0.4);
-  line-height: 15px;
-}
-
-.days .weather-disc {
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 14px;
-}
-
-.units {
-  cursor: pointer;
-  text-decoration: none;
-  color: #c0c4c2;
-}
-.days {
-  background-color: #3f3551;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.forecast-days .weather-icon {
-  padding-left: 0px;
-}
-
-.days:last-child {
-  margin-right: 0px;
-}
-
-.forecast-days .min-temp,
-.forecast-days .max-temp {
+.min-temp,
+.max-temp {
   font-size: 18px;
-  font-weight: 200;
   margin-left: 18px;
   margin-top: 0px;
-}
-
-.days .weather-disc {
-  text-align: center;
-  font-size: 14px;
-}
-
-#updating-date {
-  margin-top: 0;
 }
