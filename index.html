@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;600&family=Mali:ital,wght@1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;600&family=Merienda&display=swap"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -28,7 +28,7 @@
   <body>
     <div class="wrapper">
       <div class="row">
-        <div class="container forecast-main">
+        <div class="container forecast-main col-8">
           <form class="main-head" id="search-form">
             <input
               type="text"
@@ -61,13 +61,13 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-4 details">
+            <div class="col-5">
               <ul>
                 <li>Cloudiness: <span id="cloud"></span>%</li>
                 <li>Humidity: <span id="humidity"></span>%</li>
               </ul>
             </div>
-            <div class="col-6 details">
+            <div class="col-7">
               <ul>
                 <li>Maximum temperature: <span id="max-temp"></span>&deg;</li>
                 <li>Minimum temperature: <span id="min-temp"></span>&deg;</li>

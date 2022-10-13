@@ -97,14 +97,15 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 3) {
       forecastHTML =
         forecastHTML +
         `
-        <div class="row-2">
+        <div class="row">
         <h2>${formatDay(forecastDay.dt)}</h2>
-        <div class="col">
-            <div class="weather-forecast-temperatures">
+        <div class="row"
+        <div>
+            <div class="weather-forecast-temperatures col-3">
                 <p class="forecast-max-temp">${Math.round(
                   forecastDay.temp.max
                 )}° </p>
@@ -112,17 +113,19 @@ function displayForecast(response) {
                   forecastDay.temp.min
                 )}° </p>
             </div>  
-            <div class="forecast-icon"> 
+            <div class="forecast-icon col-5"> 
             <img 
               src="img/${forecastDay.weather[0].icon}.svg"
-              class="next-day-icon"
+              alt=""
+          width="50"
             />
             </div>    
           </div>
-          <div class="col">
+          <div>
             <p class="weather-decsription">${
               forecastDay.weather[0].description
             }</p>
+          </div>
           </div>
         </div>
       `;
@@ -138,23 +141,23 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = fahrenheitTemperature;
-}
+// function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   celsiusLink.classList.remove("active");
+//   fahrenheitLink.classList.add("active");
+//   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+//   let temperatureElement = document.querySelector("#current-temperature");
+//   temperatureElement.innerHTML = fahrenheitTemperature;
+// }
 
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-let celsiusTemperature = null;
+// function displayCelsiusTemperature(event) {
+//   event.preventDefault();
+//   fahrenheitLink.classList.remove("active");
+//   celsiusLink.classList.add("active");
+//   let temperatureElement = document.querySelector("#current-temperature");
+//   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+// }
+// let celsiusTemperature = null;
 
 function searchCity(city) {
   const apiKey = "8e5b59b809f8bc53074ae3c184eef489";
